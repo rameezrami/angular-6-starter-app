@@ -1,0 +1,5 @@
+<div *ngIf="msgStatus && msgStatus.message" class="msg-box {{msgStatus.type}}">
+    <a href="javascript:void(0);" (click)="clearMessage()" class="pull-right" title="Close" style="color: rgb(255, 255, 255); font-size: 20px;">×</a>
+    <a class="msg-box-txt">{{msgStatus.message}}</a>
+    <a *ngIf="msgStatus.btnLink" class="btn btn-default btn-sm" routerLink="{{msgStatus.btnLink}}">{{msgStatus.btnText}}</a>
+</div>
