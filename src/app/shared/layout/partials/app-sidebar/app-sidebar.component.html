@@ -1,0 +1,49 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    
+    <!-- sidebar -->
+    <section class="sidebar">
+
+      <!-- search form (Optional) TODO-TASK-->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">NAVIGATION MENU</li>
+        <li *ngFor="let menu of menus" class="">
+          <a routerLink="{{menu.path}}" href="#">
+            <i *ngIf="menu.iconClass" class="{{menu.iconClass}}"></i> 
+            <span>{{menu.name}}</span>
+          </a>
+        </li>
+        <li *ngFor="let menuItem of menu" [ngClass]="{'active':(currentUrl==menuItem.path || isChildrenActive(menuItem)), 'treeview':menuItem.children, 'menu-open': (menuItem.children && isChildrenActive(menuItem))}">
+            <a href="javascript:void(0)">
+              <i *ngIf="menuItem.iconClass" class="{{menuItem.iconClass}}"></i> 
+              <span> {{menuItem.title}}</span>
+              <span *ngIf="menuItem.children && menuItem.children.length>0" class="pull-right-container">
+                  <i class="fa fa-angle-down pull-right"></i>
+              </span>
+            </a>
+            <ul *ngIf="menuItem.children && menuItem.children.length>0" class="treeview-menu">
+                <li *ngFor="let childrenMenu of menuItem.children" [ngClass]="{'active':(currentUrl==childrenMenu.path)}">
+                  <a [routerLink]="childrenMenu.path">
+                      <i *ngIf="childrenMenu.iconClass" class="{{childrenMenu.iconClass}}"></i> 
+                      <span>{{childrenMenu.title}}</span>
+                    </a>
+                </li>
+              </ul>
+          </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>

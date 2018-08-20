@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/main.css';
+@import 'assets/css/AdminLTE.css';
+/* Theme style */
+@import 'assets/css/skins/skin-purple.css';
